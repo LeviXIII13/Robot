@@ -18,8 +18,11 @@ extern "C" {
 #endif
 
 #include "esp_err.h"
-#include "driver/pcnt.h"
+#include "driver/pulse_cnt.h"
+#include "driver/gpio.h"
 #include "hal/pcnt_hal.h"
+#include "driver/pcnt_types_legacy.h"
+#include "driver/pcnt.h"
 
 #define pcnt_unit_L PCNT_UNIT_1
 #define pcnt_unit_R PCNT_UNIT_2

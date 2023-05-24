@@ -8,6 +8,7 @@
 #include "esp_check.h"
 #include "soc/rtc.h"
 #include "driver/mcpwm.h"
+#include "driver/gpio.h"
 
 const char *HCSR04_TAG = "HC_SR04";
 
@@ -178,7 +179,7 @@ void Fowrward_Distance_Get(void *param)
             continue;
         }
         *forward_distance = (float)pulse_width_us / 58;
-        ESP_LOGI(HCSR04_TAG, "Pulse width: %uus, Forward Measured distance: %.2fcm", pulse_width_us, *forward_distance);
+        ESP_LOGI(HCSR04_TAG, "Pulse width: %uus, Forward Measured distance: %.2fcm", (unsigned int)pulse_width_us, *forward_distance);
     }
 }
 
@@ -198,7 +199,7 @@ void Left_Distance_Get(void *param)
             continue;
         }
         *left_distance = (float)pulse_width_us / 58;
-        ESP_LOGI(HCSR04_TAG, "Pulse width: %uus, Left Measured distance: %.2fcm", pulse_width_us, *left_distance);
+        ESP_LOGI(HCSR04_TAG, "Pulse width: %uus, Left Measured distance: %.2fcm", (unsigned int)pulse_width_us, *left_distance);
     }
 }
 
@@ -218,7 +219,7 @@ void Right_Distance_Get(void *param)
             continue;
         }
         *right_distance = (float)pulse_width_us / 58;
-        ESP_LOGI(HCSR04_TAG, "Pulse width: %uus, Right Measured distance: %.2fcm", pulse_width_us, *right_distance);
+        ESP_LOGI(HCSR04_TAG, "Pulse width: %uus, Right Measured distance: %.2fcm", (unsigned int)pulse_width_us, *right_distance);
     }
 }
 
